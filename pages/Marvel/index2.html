@@ -11,7 +11,7 @@
   <header>
     <nav class="nav-bar">
       <ul>
-        <li>Home</li>
+        <li><a href="../../index.html">Home</a> </li>
         <li>Curtidas</li>
       </ul>
     </nav>
@@ -20,11 +20,14 @@
     <img src="assets/marvellogo.gif" alt="Marvel Logo">
 
     <form action="" class="search">
-      <input type="search" class="search-input" placeholder="Search about a pokemon using name or pokedex number">
+      <select id="filtersHeroes">
+        <option value="name" selected>Nome</option>
+        <option value="date">Ano de criação</option>
+      </select>
+      <input type="search" class="search-input" placeholder="Digite sua busca">
       <button class="search-button">Search</button>
     </form>
-
-    <section class="pokemon">
+    <section class="heroes">
     </section>
     <span class="error">Not Found!</span>
   </main>

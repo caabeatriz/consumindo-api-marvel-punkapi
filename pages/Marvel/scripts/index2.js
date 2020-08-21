@@ -5,11 +5,11 @@ const urlvalida = 'http://gateway.marvel.com/v1/public/characters?name=Hulk&ts=1
 // Get Elements --------------------------------------------
 const searchInput = getElement('.search-input'),
       searchButton = getElement('.search-button'),
-      container = getElement('.pokemon'),
+      container = getElement('.heroes'),
       erroMessage = getElement('.error');
 
-var pokeName, // Nome ou numero passado na caixa de busca
-    pokemon, // Responsavel por guardar os dados recebidos da API
+var heroesName, // Nome ou numero passado na caixa de busca
+    heroes, // Responsavel por guardar os dados recebidos da API
     card; // Responsavel por receber o HTML 
 
 // Build Functions --------------------------------------------
@@ -19,37 +19,37 @@ function getElement(element) {
   return document.querySelector(element);
 }
 
-// Função responsavel por fazer requisições para a API e inserir as respostas na variavel pokemon
+// Função responsavel por fazer requisições para a API e inserir as respostas na variavel heroes
 function requestPokeInfo( name) {
   fetch('http://gateway.marvel.com/v1/public/characters?name='+name+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173')
     .then(response => response.json())
     .then(data => {
-      pokemon = data.data.results;
-      console.log(pokemon[0].name)
+      heroes = data.data;
     })
     .catch(err => console.log(err));
 }
 
 // Função responsavel por montar o HTML exibido na pagina
 function createCard () {
-    console.log(pokemon[0])
+    const {results: {0 : {name}}} = heroes;
+    const {results: {0 : {description}}} = heroes;
   card = `
   
-    <div class="pokemon-info">
-        <h1 class="name">Name: ${pokemon[0].name}</h1>
-        <p>Descrição: ${pokemon[0].description}</p>
-        <img src="http://gateway.marvel.com/v1/public/characters?name=Hulk&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173/ + pokemon[0].thumbnail.path + pokemon[0].thumbnail.extension" />
+    <div class="heroes-info">
+        <h1 class="name">Name: ${name}</h1>
+        <p> ${description} </p>
+        
     </div>`;
-    console.log(pokemon)
-    console.log(pokemon[0].thumbnail.path)
+  
+   
 
   return card;
 
 }
 
 // Função que faz a chamada das principais funções e inicia o app
-function startApp(pokeName) {
-  requestPokeInfo(pokeName);
+function startApp(heroesName) {
+  requestPokeInfo(heroesName);
 
   setTimeout(function () {
       container.innerHTML = createCard();
@@ -59,8 +59,27 @@ function startApp(pokeName) {
 // Add Events --------------------------------------------
 searchButton.addEventListener('click', event => {
   event.preventDefault();
-  pokeName = searchInput.value.toLowerCase();
-  startApp(pokeName);
+  heroesName = searchInput.value.toLowerCase();
+  startApp(heroesName);
+  selectOptions();
 });
 
 // se o valor for 1 que é igual a nome faça 
+// capturar o valor do select
+function captureSelect(){
+    var select = document.getElementById('filtersHeroes');
+    var value = select.options[select.selectedIndex].value;
+    console.log(value)
+	return value;
+}
+
+
+function selectOptions (){
+    if( captureSelect() == 'name'){
+        console.log("deu certo")
+    }else if ( captureSelect() == 'date'){
+
+    }
+
+}
+
