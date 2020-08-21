@@ -1,3 +1,6 @@
+*{
+    margin: 0 auto;
+}
 body{
     background: url(../assets/fundo.jpg) no-repeat center top #fff;
     background-size: cover;
@@ -6,4 +9,16 @@ body{
 .container{
     margin: 0 auto;
     width: 70%;
+}
+.nav-bar{
+    background-color: black;
+    color:white;
+}
+.nav-bar ul {
+    display: flex;
+}
+.nav-bar ul li {
+    font-size: 24px;
+    list-style: none;
+    margin: 20px 10px 20px 0;
 }
