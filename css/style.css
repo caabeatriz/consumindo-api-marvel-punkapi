@@ -1,0 +1,14 @@
+main{
+    text-align: center;
+}
+.container{
+    margin: 0 auto;
+    width: 65%;
+}
+.icons-img{
+    width: 200px;
+    margin: 20px 20px 0;
+}
+.img-title{
+    margin: 200px 0 20px 0;
+}
