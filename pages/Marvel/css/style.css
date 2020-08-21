@@ -1,0 +1,9 @@
+body{
+    background: url(../assets/fundo.jpg) no-repeat center top #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container{
+    margin: 0 auto;
+    width: 70%;
+}
