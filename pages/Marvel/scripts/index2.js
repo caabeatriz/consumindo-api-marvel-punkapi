@@ -29,7 +29,7 @@ function requestHeroesName( name) {
     .catch(err => console.log(err));
 }
 function requestYearCreate( year) {
-    fetch('http://gateway.marvel.com/v1/public/characters?name='+name+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173')
+    fetch('http://gateway.marvel.com/v1/public/characters?name='+year+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173')
       .then(response => response.json())
       .then(data => {
         heroes = data.data;
@@ -61,10 +61,7 @@ function startApp(heroesName) {
             }, 2000);           
         }else if ( captureSelect() == 'date'){
             console.log("deu ce1rto")
-
         }
-    
- 
 }
 
 // Add Events --------------------------------------------
