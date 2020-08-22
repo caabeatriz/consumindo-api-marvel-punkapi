@@ -20,7 +20,7 @@ function getElement(element) {
 }
 
 // Função responsavel por fazer requisições para a API e inserir as respostas na variavel heroes
-function requestPokeInfo( name) {
+function requestHeroesName( name) {
   fetch('http://gateway.marvel.com/v1/public/characters?name='+name+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173')
     .then(response => response.json())
     .then(data => {
@@ -28,58 +28,58 @@ function requestPokeInfo( name) {
     })
     .catch(err => console.log(err));
 }
-
-// Função responsavel por montar o HTML exibido na pagina
-function createCard () {
-    const {results: {0 : {name}}} = heroes;
-    const {results: {0 : {description}}} = heroes;
-  card = `
+function requestYearCreate( year) {
+    fetch('http://gateway.marvel.com/v1/public/characters?name='+name+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173')
+      .then(response => response.json())
+      .then(data => {
+        heroes = data.data;
+      })
+      .catch(err => console.log(err));
+  }
   
+// Função responsavel por montar o HTML exibido na pagina
+function createAboutHeroes () {
+const {results: {0 : {name}}} = heroes;
+const {results: {0 : {description}}} = heroes;
+  card = `
     <div class="heroes-info">
         <h1 class="name">Name: ${name}</h1>
         <p> ${description} </p>
-        
     </div>`;
-  
-   
-
   return card;
-
 }
 
 // Função que faz a chamada das principais funções e inicia o app
 function startApp(heroesName) {
-  requestPokeInfo(heroesName);
+    //Seleciona as opções do select
+    
+        if( captureSelect() == 'name'){
+            console.log("deu certo")
+            requestHeroesName(heroesName);
+            setTimeout(function () {
+                container.innerHTML = createAboutHeroes();
+            }, 2000);           
+        }else if ( captureSelect() == 'date'){
+            console.log("deu ce1rto")
 
-  setTimeout(function () {
-      container.innerHTML = createCard();
-  }, 2000);
+        }
+    
+ 
 }
 
 // Add Events --------------------------------------------
 searchButton.addEventListener('click', event => {
   event.preventDefault();
-  heroesName = searchInput.value.toLowerCase();
+  heroesName = searchInput.value;
   startApp(heroesName);
-  selectOptions();
 });
 
-// se o valor for 1 que é igual a nome faça 
 // capturar o valor do select
 function captureSelect(){
     var select = document.getElementById('filtersHeroes');
     var value = select.options[select.selectedIndex].value;
-    console.log(value)
 	return value;
 }
 
 
-function selectOptions (){
-    if( captureSelect() == 'name'){
-        console.log("deu certo")
-    }else if ( captureSelect() == 'date'){
-
-    }
-
-}
 
