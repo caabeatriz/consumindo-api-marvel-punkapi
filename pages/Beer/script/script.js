@@ -1,4 +1,6 @@
-fetch('https://api.punkapi.com/v2/beers')
+fetch('https://api.punkapi.com/v2/beers?food=tacos')
     .then (response => response.json())
-    .then(console.log(data))
+    .then( data =>
+        console.log(data)
+    )
     .catach()
