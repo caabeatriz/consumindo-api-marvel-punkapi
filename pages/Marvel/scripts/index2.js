@@ -5,7 +5,7 @@ const urlvalida = 'http://gateway.marvel.com/v1/public/characters?name=Hulk&ts=1
 // Get Elements --------------------------------------------
 const searchInput = getElement('.search-input'),
       searchButton = getElement('.search-button'),
-      container = getElement('.heroes'),
+      container = getElement('.heroes')
 
 var heroesName, // Nome ou numero passado na caixa de busca
     heroes, // Responsavel por guardar os dados recebidos da API
