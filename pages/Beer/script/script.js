@@ -72,7 +72,7 @@ function createAboutBeers(){
             card = `
                 <div class=" card beer-info">
                 <div class="card-body">
-                    <h4 class="card-title">Name: TESTEEEEEEE ${beers[i].name}  </h4>
+                    <h4 class="card-title">Name:  ${beers[i].name}  </h4>
                     <p class=""> Alimentos que combinam: ${beers[i].food_pairing}</p>
                     <p class="card-text">  ${beers[i].description}</p>
                     <img class="card-img" src="${beers[i].image_url}" alt""> 
@@ -93,8 +93,6 @@ function createAboutBeers(){
             container.innerHTML += card;
          }
     }
-  
-
     return card;
 }
 
