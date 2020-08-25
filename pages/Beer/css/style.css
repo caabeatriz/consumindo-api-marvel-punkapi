@@ -48,3 +48,61 @@ h1 {
   .card-img{
       width: 50px;
   }
+
+  .select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 14px;
+  }
+  .select:focus {
+    color: black;
+  }
+  .select::-ms-expand {
+    display: none;
+  }
+  button {
+    cursor: pointer;
+    outline: none;
+  }
+  button.outline {
+    position: relative;
+    z-index: 3;
+    background: transparent;
+    color: #1172c4;
+    font-size: 14px;
+    border-color: #1172c4;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 22px;
+    padding: 10px 40px;
+    text-transform: uppercase;
+    transition: all 0.2s linear;
+  }
+  button.outline a {
+    text-decoration: none;
+  }
+  button.outline:hover {
+    color: white;
+    background: #1172c4;
+    border-color: white;
+    transition: all 0.2s linear;
+  }
+  button.outline:active {
+    border-radius: 22px;
+  }
+  button.white-blue {
+    font-weight: 700;
+    color: #00aeef;
+    border-color: white;
+    background: white;
+  }
+  button.white-blue:hover {
+    color: white;
+    background: #00aeef;
+    border-color: white;
+  }
