@@ -36,10 +36,11 @@ function validateSelect(){
     if(captureSelect() == 'name'){
         url = 'https://api.punkapi.com/v2/beers?beer_name='+valueInput; 
 
-    } else if (captureSelect() == 'date'){
-        url ='https://api.punkapi.com/v2/beers?beer_name=teste'+valueInput
+    } else if (captureSelect() == 'food'){
+        url ='https://api.punkapi.com/v2/beers?food='+valueInput;
     }
-    return url 
+
+    return url
 }
 
 
@@ -62,21 +63,40 @@ function error(){
     var teste = "erro"
     return teste ; 
 }
+
 function createAboutBeers(){
     //Criar aqui um html para criar as informalões de divs e limpar caso tenha a div de erro
     // Coloca todos os campos, mas os q estiverem vazios deixa em branco
-    for (var i = 0 ; i < beers.length; i++){
-        console.log(beers[i])
-        card = `
-            <div class=" card beer-info">
-            <div class="card-body">
-                <h4 class="card-title">Name: ${beers[i].name}  </h4>
-                <p class="card-text">  ${beers[i].description}</p>
-                <img class="card-img" src="${beers[i].image_url}" alt""> 
-            </div>`
-        ;
-        container.innerHTML += card
-     }
+    if (captureSelect() == 'food'){
+        for (var i = 0 ; i < beers.length; i++){
+            card = `
+                <div class=" card beer-info">
+                <div class="card-body">
+                    <h4 class="card-title">Name: TESTEEEEEEE ${beers[i].name}  </h4>
+                    <p class=""> Alimentos que combinam: ${beers[i].food_pairing}</p>
+                    <p class="card-text">  ${beers[i].description}</p>
+                    <img class="card-img" src="${beers[i].image_url}" alt""> 
+                </div>`
+            ;
+            container.innerHTML += card;
+         }
+    }else if (captureSelect() == 'name' ){
+        for (var i = 0 ; i < beers.length; i++){
+            card = `
+                <div class=" card beer-info">
+                <div class="card-body">
+                    <h4 class="card-title">Name: ${beers[i].name}  </h4>
+                    <p class="card-text">  ${beers[i].description}</p>
+                    <img class="card-img" src="${beers[i].image_url}" alt""> 
+                </div>`
+            ;
+            container.innerHTML += card;
+         }
+    }
+  
+
     return card;
 }
+
+
 
