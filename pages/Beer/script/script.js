@@ -72,7 +72,7 @@ function createAboutBeers(){
             <div class="card-body">
                 <h4 class="card-title">Name: ${beers[i].name}  </h4>
                 <p class="card-text">  ${beers[i].description}</p>
-                <img src="${beers[i].image_url}" alt""> 
+                <img class="card-img" src="${beers[i].image_url}" alt""> 
             </div>`
         ;
         container.innerHTML += card
