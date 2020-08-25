@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
-</head>
-<body>
-  <h1>Faça sua busca ! </h1>
-    <form action="" class="search">
-        <select id="filtersBeers">
-          <option value="name" selected>Nome</option>
-          <option value="date">Qual alimento você tem em casa ? </option>
-        </select>
-        <input type="search" id="searchInputBeer" class="search-input" placeholder="Digite sua busca">
-        <button class="search-button">Search</button>
-      </form>
-      <section class="beersInformation">
 
-      </section>
-    <script src="script/script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="../../index.html">Home</a> </li>
+        <li>Curtidas</li>
+      </ul>
+    </nav>
+  </header>
+  <h1>Faça sua busca ! </h1>
+  <form action="" class="search">
+    <select id="filtersBeers">
+      <option value="name" selected>Nome</option>
+      <option value="food">Insira um alimento que você tenha em casa... </option>
+    </select>
+    <input type="search" id="searchInputBeer" class="search-input" placeholder="Digite sua busca">
+    <button class="search-button">Search</button>
+  </form>
+  <section class="beersInformation">
+  </section>
+  <script src="script/script.js"></script>
 </body>
+
 </html>
