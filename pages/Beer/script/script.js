@@ -68,9 +68,10 @@ function createAboutBeers(){
     for (var i = 0 ; i < beers.length; i++){
         console.log(beers[i])
         card = `
-            <div class="beer-info">
-                <h1 class="name">Name: ${beers[i].name}  </h1>
-                <p>  ${beers[i].description}</p>
+            <div class=" card beer-info">
+            <div class="card-body">
+                <h4 class="card-title">Name: ${beers[i].name}  </h4>
+                <p class="card-text">  ${beers[i].description}</p>
                 <img src="${beers[i].image_url}" alt""> 
             </div>`
         ;
