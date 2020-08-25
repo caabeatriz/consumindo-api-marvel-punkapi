@@ -52,6 +52,7 @@ function request (){
     .then(data => {
         beers= data
         createAboutBeers()
+        teste()
     })
     .catch(err => console.error('erro'))
 
@@ -72,6 +73,7 @@ function createAboutBeers(){
             card = `
                 <div class=" card beer-info">
                 <div class="card-body">
+                <button  class="starButton" > starrrr </button>
                     <h4 class="card-title">Name:  ${beers[i].name}  </h4>
                     <p class=""> Alimentos que combinam: ${beers[i].food_pairing}</p>
                     <p class="card-text">  ${beers[i].description}</p>
@@ -79,11 +81,15 @@ function createAboutBeers(){
                 </div>`
             ;
             container.innerHTML += card;
-         }
-    }else if (captureSelect() == 'name' ){
+            
+        }
+    }
+    
+    else if (captureSelect() == 'name' ){
         for (var i = 0 ; i < beers.length; i++){
             card = `
                 <div class=" card beer-info">
+             <button  class="starButton" > starrrr </button>
                 <div class="card-body">
                     <h4 class="card-title">Name: ${beers[i].name}  </h4>
                     <p class="card-text">  ${beers[i].description}</p>
@@ -91,10 +97,22 @@ function createAboutBeers(){
                 </div>`
             ;
             container.innerHTML += card;
-         }
+        }    
     }
+    
     return card;
 }
 
+// ao clicar na estrela salva uma classe para favoritar
 
 
+
+function teste (){
+const buttonStar = document.querySelector('.starButton')
+console.log(buttonStar)
+buttonStar.addEventListener('click', event => {
+    event.preventDefault();
+    console.log("teste")
+    localStorage.setItem('nome','Jack Sparrow')
+
+})}
