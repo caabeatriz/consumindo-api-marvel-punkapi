@@ -1,16 +1,19 @@
 const searchButton = document.querySelector(".search-button")
-fetch('https://api.punkapi.com/v2/beers?beer_name=punk')
-    .then(response => response.json())
-    .then(data => {
-        createAboutBeers()
-        console.log('teste', data)
-    })
-    .catch(err => console.log('erro', err)
-    )
+const container = document.querySelector('.beersInformation')
+var beers;
+// fetch('https://api.punkapi.com/v2/beers?beer_name=punk')
+// .then(response => response.json())
+// .then(data => {
+//     beers = data;  
+//     createAboutBeers()
+//     })
+//     .catch(err => console.error(err))
+
 //Para clicar no botão e trazer o valor do input
 searchButton.addEventListener('click', event => {
     event.preventDefault();
     request()
+    container.innerHTML = ''
 });
 
 // Para capturar o valor do select
@@ -39,43 +42,19 @@ function validateSelect(){
     return url 
 }
 
-validateSelect()
+
 // Para entrar na api
 function request (){
     var requestUrl = validateSelect()
-    fetch('https://api.punkapi.com/v2/beers?beer_name=punk')
+    fetch(requestUrl)
     .then(response => response.json())
     .then(data => {
+        beers= data
         createAboutBeers()
-        console.log('teste', data)
     })
-    .catch(err => console.log('erro'))
+    .catch(err => console.error('erro'))
 
 }
-
-// function validateInput() {
-//     name = captureInput()
-
-//     if(captureSelect() == "name"){
-//         fetch('https://api.punkapi.com/v2/beers?beer_name='+name)
-//         .then(response => response.json())
-//         .then(data =>
-//             console.log(data)
-            
-//         )
-//         .catch(
-//             console.log("errorrrrrrr", error())
-//             //Aqui é para adicionar uma função de tratar o erro
-//         )
-//          if  (captureSelect() == 'year'){
-
-//         }
-//         else {
-//             console.log("else")
-//         }
-//     }
-//     console.log(captureSelect())
-// }
 
 function error(){
     //Criar um html com os dizeres 'Não encontramos o que você digitou' 
@@ -85,12 +64,18 @@ function error(){
 }
 function createAboutBeers(){
     //Criar aqui um html para criar as informalões de divs e limpar caso tenha a div de erro
-    card = `
-        <div class="beer-info">
-            <h1 class="name">Name: </h1>
-            <p>  </p>
-        </div>`
-    ;
-    console.log(data.name)
+    // Coloca todos os campos, mas os q estiverem vazios deixa em branco
+    for (var i = 0 ; i < beers.length; i++){
+        console.log(beers[i])
+        card = `
+            <div class="beer-info">
+                <h1 class="name">Name: ${beers[i].name}  </h1>
+                <p>  ${beers[i].description}</p>
+                <img src="${beers[i].image_url}" alt""> 
+            </div>`
+        ;
+        container.innerHTML += card
+     }
     return card;
 }
+
