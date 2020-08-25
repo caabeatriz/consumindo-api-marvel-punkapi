@@ -25,7 +25,9 @@ h1 {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   }
   .card {
-    margin: 2rem;
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 5rem;
         /* position: relative; */
         display: -ms-flexbox;
         display: flex;
@@ -43,4 +45,6 @@ h1 {
     color: rgba(0, 0, 0, 0.9);
     padding: 1.25rem;
   }
-  
+  .card-img{
+      width: 50px;
+  }
