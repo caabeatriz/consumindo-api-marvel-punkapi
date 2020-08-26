@@ -80,12 +80,13 @@ function createAboutBeers(){
             const  {results: {[i]: {thumbnail: {extension}}}} = heroes
             card = `
             <div class=" card beer-info">
-            <button  class="starButton" onclick="setLocal()" data-index=${i} > starrrr </button>
+            <button  class="starButton" onclick="setLocal(), this.disabled=true;"  data-index=${i} > Add favorite </button>
             <div class="card-body">
                 <h4 class="card-title">Name:  ${title} </h4>
-                <p> ${description} </p>
-                <img src="${path}.${extension}" alt="Image of ${name}" width="250"
-
+                <img  class="card-img" src="${path}.${extension}" alt="Image of ${name}" width="250">
+                <div class="card-description">
+                    <p class="card-description_title"> ${description} </p>
+                </p>
             </div>`
             ;
             container.innerHTML += card;
@@ -100,10 +101,10 @@ function createAboutBeers(){
             <div class="card beer-info">
             <div class="card-body">
                 <h4 class="card-title">Name:  ${name} </h4>
-                <p> ${description} </p>
-                <p> teste </p>
-                <img src="${path}.${extension}" alt="Image of ${name}" width="250"
-                height="250">
+                <img class="card-body-img" src="${path}.${extension}" alt="Image of ${name}" width="250" height="250">
+               <div class="card-description">
+                    <p  class="card-description_title"> ${description} </p>      
+                </div>      
             </div>`
             ;
             container.innerHTML += card;
