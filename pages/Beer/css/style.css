@@ -75,14 +75,12 @@ h1 {
   }
 
   .select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
     background: white;
     border: none;
     border-radius: 0;
     cursor: pointer;
     padding: 12px;
-    font-size: 14px;
+    font-size: 10px;
   }
   .select:focus {
     color: black;
@@ -200,5 +198,14 @@ h1 {
         .card-body-img{
             width: 150px;
             height: 150px;
+        }
+        h1{
+          font-size: 3rem;
+        }
+        .select{
+          margin: 20px;
+        }
+        .search-input {
+          margin: 20px;
         }
   }
