@@ -50,7 +50,7 @@ h1 {
       margin: 20px 10px 20px 0;
   }
   .card {
-        width: 70%;
+        width: 50%;
         margin: 0 auto;
         margin-top: 5rem;
         /* position: relative; */
@@ -143,6 +143,9 @@ h1 {
   .card-title{
     margin: 20px;
   }
+  .card-text{
+    font-size: 0.7rem;
+  }
   .card-img {
     margin: 20px;
   }
@@ -164,6 +167,14 @@ h1 {
     width: 30%;
     text-align: center;
     padding: 20px;
+    margin: 20px;
+  }
+  .card-boby-match{
+    font-size: 0.65rem;
+    margin: 20px;
+  }
+  .erro-title{
+    color: white;
     margin: 20px;
   }
   @media screen and (max-width: 900px){

@@ -23,6 +23,9 @@ main{
 .img-title{
     margin: 200px 0 20px 0;
 }
+img.icons-img:hover {
+    background-color: yellow;
+}
 @media screen and (max-width: 900px){
     .container{
         padding-top: 20px;
