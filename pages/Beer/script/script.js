@@ -78,13 +78,13 @@ function createAboutBeers() {
     if (captureSelect() == 'food') {
         for (var i = 0; i < beers.length; i++) {
             card = `
-                <div class=" card beer-info">
+                <div class="card beer-info">
                 <div class="card-body">
-                <button  class="starButton" > starrrr </button>
+                <button  class="starButton outline black-blue" > Add my favorites </button>
+                <h4 class="card-boby-match"> Alimentos que combinam: ${beers[i].food_pairing}</h4>
                     <h4 class="card-title">Name:  ${beers[i].name}  </h4>
-                    <p class=""> Alimentos que combinam: ${beers[i].food_pairing}</p>
+                    <img class="card-img" src="${beers[i].image_url}" alt= "Image of ${beers[i].name}"> 
                     <p class="card-text">  ${beers[i].description}</p>
-                    <img class="card-img" src="${beers[i].image_url}" alt""> 
                 </div>`
 
                 ;
@@ -97,7 +97,7 @@ function createAboutBeers() {
         for (let i = 0; i < beers.length; i++) {
             card = `
                 <div class=" card beer-info">
-             <button  class="starButton" onclick="setLocal()" data-index=${i} > starrrr </button>
+             <button  class="starButton outline black-blue" onclick="setLocal(), this.disabled=true;" data-index=${i} > Add my favorites </button>
                 <div class="card-body">
                     <h4 class="card-title">Name: ${beers[i].name}  </h4>
                     <img class="card-img" src="${beers[i].image_url}" alt""> 
