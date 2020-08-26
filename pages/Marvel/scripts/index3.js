@@ -69,31 +69,41 @@ function error(){
 function createAboutBeers(){
     //Criar aqui um html para criar as informalões de divs e limpar caso tenha a div de erro
     // Coloca todos os campos, mas os q estiverem vazios deixa em branco
-    const {results: {0 : {name}}} = heroes;
-    const {results: {0 : {description}}} = heroes;
- 
+   
+   
 
     if (captureSelect() == 'comics'){
         for (var i = 0 ; i < heroes.results.length; i++){
             const {results: {[i]: {title}}} = heroes;
             const {results: {[i]: {description}}} = heroes
+            const {results: {[i]: {thumbnail: {path}}}} = heroes;
+            const  {results: {[i]: {thumbnail: {extension}}}} = heroes
             card = `
             <div class=" card beer-info">
             <button  class="starButton" onclick="setLocal()" data-index=${i} > starrrr </button>
             <div class="card-body">
                 <h4 class="card-title">Name:  ${title} </h4>
                 <p> ${description} </p>
+                <img src="${path}.${extension}" alt="Image of ${name}" width="250"
+
             </div>`
             ;
             container.innerHTML += card;
 
            
          }}else if (captureSelect() == 'name' ){
+            const {results: {0 : {name}}} = heroes;
+            const {results: {0 : {description}}} = heroes;
+            const {results: {0: {thumbnail: {path}}}} = heroes;
+            const  {results: {0: {thumbnail: {extension}}}} = heroes
             card = `
             <div class="card beer-info">
             <div class="card-body">
                 <h4 class="card-title">Name:  ${name} </h4>
                 <p> ${description} </p>
+                <p> teste </p>
+                <img src="${path}.${extension}" alt="Image of ${name}" width="250"
+                height="250">
             </div>`
             ;
             container.innerHTML += card;
@@ -113,3 +123,4 @@ function setLocal() {
     localStorage.setItem('titleComics', favoritesHeroes)
 }
 
+//Tentar pegar imagem
