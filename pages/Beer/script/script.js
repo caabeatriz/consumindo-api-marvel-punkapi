@@ -49,7 +49,6 @@ function request() {
         })
         .catch(err => {
             error()
-            console.log(err)
         })
 
 }
@@ -100,7 +99,6 @@ function createAboutBeers() {
 
 function setLocal() {
     let index = event.target.dataset.index;
-    console.log(beers.image_url)
     var verification = favorites.includes(beers[index].name);
     if (verification == false) {
         favorites.push(beers[index].name);

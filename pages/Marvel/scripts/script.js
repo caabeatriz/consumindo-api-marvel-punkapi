@@ -41,7 +41,6 @@ function request (){
     .then(response => response.json())
     .then(data => {
         heroes= data.data
-        console.log(heroes.results.length)
         if(heroes.results.length == 0 ){
             error()
         }else {
@@ -50,7 +49,6 @@ function request (){
         
     })
     .catch(err => {
-        console.log(err)
         error()
     }
     )
@@ -111,7 +109,6 @@ function createAboutBeers(){
 function setLocal() {
     let index = event.target.dataset.index;
     var heroesImgArray = heroes.results[index].thumbnail.path+'.'+ heroes.results[index].thumbnail.extension
-    console.log(heroesImgArray) 
     var verification = favoritesHeroes.includes(heroes.results[index].title);
     if (verification == false) {
         favoritesHeroes.push(heroes.results[index].title);
