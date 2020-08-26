@@ -150,4 +150,13 @@ body{
         .card-favorites{
           width: 100%;
         }
+        .search{
+          margin: 20px;
+        }
+        .select{
+          margin: 20px;
+        }
+        .search-input {
+          margin: 20px;
+        }
   }
