@@ -68,7 +68,6 @@ h1 {
   
   .card-body {
     color: rgba(0, 0, 0, 0.9);
-    padding: 1.25rem;
   }
   .card-img{
       width: 50px;
@@ -185,6 +184,7 @@ h1 {
     }
       .card{
         margin-bottom: 20px;
+        width: 70%;
       }
       .card-description {
         font-size: 0.85rem;
