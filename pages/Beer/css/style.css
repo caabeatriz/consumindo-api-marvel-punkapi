@@ -1,3 +1,11 @@
+@font-face {
+	font-family: Joystick;
+	src: url(../../../assets/fonte/joystixmonospace.ttf)
+}
+*{
+    margin: 0 auto;
+    font-family: Joystick,'Arial';
+}
 body {
     background-image: url(../assets/fundo.jpg);
     background-position: center center;
