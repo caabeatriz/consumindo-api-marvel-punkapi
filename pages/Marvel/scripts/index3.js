@@ -1,6 +1,8 @@
 const searchButton = document.querySelector(".search-button")
 const container = document.querySelector('.heroes')
 var heroes;
+const favoritesHeroes = []
+
 // fetch('https://api.punkapi.com/v2/beers?beer_name=punk')
 // .then(response => response.json())
 // .then(data => {
@@ -36,7 +38,7 @@ function validateSelect(){
     if(captureSelect() == 'name'){
         url = 'http://gateway.marvel.com/v1/public/characters?name='+valueInput+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173'; 
 
-    } else if (captureSelect() == 'date'){
+    } else if (captureSelect() == 'comics'){
         url ='http://gateway.marvel.com/v1/public/comics?title='+valueInput+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173';
     }
 
@@ -71,12 +73,13 @@ function createAboutBeers(){
     const {results: {0 : {description}}} = heroes;
  
 
-    if (captureSelect() == 'date'){
+    if (captureSelect() == 'comics'){
         for (var i = 0 ; i < heroes.results.length; i++){
             const {results: {[i]: {title}}} = heroes;
             const {results: {[i]: {description}}} = heroes
             card = `
             <div class=" card beer-info">
+            <button  class="starButton" onclick="setLocal()" data-index=${i} > starrrr </button>
             <div class="card-body">
                 <h4 class="card-title">Name:  ${title} </h4>
                 <p> ${description} </p>
@@ -87,7 +90,7 @@ function createAboutBeers(){
            
          }}else if (captureSelect() == 'name' ){
             card = `
-            <div class=" card beer-info">
+            <div class="card beer-info">
             <div class="card-body">
                 <h4 class="card-title">Name:  ${name} </h4>
                 <p> ${description} </p>
@@ -98,5 +101,15 @@ function createAboutBeers(){
     return card;
 }
 
-
+function setLocal() {
+    let index = event.target.dataset.index;
+    var verification = favoritesHeroes.includes(heroes.results[index].title);
+   
+    if (verification == false) {
+        favoritesHeroes.push(heroes.results[index].title);
+    } 
+    else {
+    }
+    localStorage.setItem('titleComics', favoritesHeroes)
+}
 
