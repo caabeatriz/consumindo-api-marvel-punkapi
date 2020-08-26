@@ -50,6 +50,22 @@ body{
   .card-title{
     margin: 20px;
   }
+  .favorites {
+    display: flex;
+    max-width: 900px;
+    flex-flow: wrap;
+  }
+  .favorites-img{
+    width: 150px;
+  }
+  .card-favorites{
+    background-color: grey;
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    justify-content: center;
+  }
 
   @media screen and (max-width: 900px){
     .nav-bar ul li {
@@ -75,5 +91,8 @@ body{
         .card-body-img{
             width: 150px;
             height: 150px;
+        }
+        .card-favorites{
+          width: 100%;
         }
   }

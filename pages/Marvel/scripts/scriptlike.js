@@ -1,13 +1,16 @@
 
 const container = document.querySelector(".favorites")
-var json = localStorage.getItem("titleComics")
-let arraySeparator = json.split(',');
+var jsonTitle = localStorage.getItem("titleComics").split(',')
+var jsonImg = localStorage.getItem("imgComics").split(',')
+// let arraySeparator = json.split(',');
 
-for(let i = 0; i < arraySeparator.length; i++){
-    console.log(arraySeparator[i])
+for(let i = 0; i < jsonTitle.length; i++){
+    console.log(jsonTitle[i])   
+     console.log(jsonImg[i])
     card = `
-    <div class=""> 
-        <h1>${arraySeparator[i]}</h1>
+    <div class="card-favorites"> 
+        <h1>${jsonTitle[i]}</h1>
+        <img  class="favorites-img"   src="${jsonImg[i]}" alt="Image of ${jsonTitle[i]}">
     </div>
    `
    container.innerHTML += card;

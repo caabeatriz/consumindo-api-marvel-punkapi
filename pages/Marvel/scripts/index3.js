@@ -1,8 +1,8 @@
 const searchButton = document.querySelector(".search-button")
 const container = document.querySelector('.heroes')
 var heroes;
-const favoritesHeroes = []
-
+var favoritesHeroes = []
+var favoritesImg = []
 // fetch('https://api.punkapi.com/v2/beers?beer_name=punk')
 // .then(response => response.json())
 // .then(data => {
@@ -123,14 +123,18 @@ function createAboutBeers(){
 
 function setLocal() {
     let index = event.target.dataset.index;
+    var heroesImgArray = heroes.results[index].thumbnail.path+'.'+ heroes.results[index].thumbnail.extension
+    console.log(heroesImgArray) 
     var verification = favoritesHeroes.includes(heroes.results[index].title);
-   
     if (verification == false) {
         favoritesHeroes.push(heroes.results[index].title);
+        favoritesImg.push(heroesImgArray)
     } 
     else {
     }
     localStorage.setItem('titleComics', favoritesHeroes)
+    localStorage.setItem('imgComics', favoritesImg)
+
 }
 
 //Tentar pegar imagem
