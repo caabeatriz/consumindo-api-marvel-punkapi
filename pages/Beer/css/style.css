@@ -175,6 +175,7 @@ h1 {
     color: white;
     margin: 20px;
   }
+ 
   @media screen and (max-width: 900px){
     .nav-bar ul li {
         font-size: 14px;
