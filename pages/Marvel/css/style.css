@@ -54,9 +54,11 @@ body{
     display: flex;
     max-width: 900px;
     flex-flow: wrap;
+    justify-content: center;
   }
   .favorites-img{
     width: 150px;
+    margin-top: 20px;
   }
   .card-favorites{
     background-color: grey;
@@ -64,7 +66,7 @@ body{
     text-align: center;
     padding: 20px;
     margin: 20px;
-    justify-content: center;
+   
   }
 
   @media screen and (max-width: 900px){
