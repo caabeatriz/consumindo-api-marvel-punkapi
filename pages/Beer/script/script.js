@@ -4,15 +4,6 @@ const containerFav = document.querySelector('.favorites')
 var beers;
 var favorites = [];
 var favoritesImg = [];
-// fetch('https://api.punkapi.com/v2/beers?beer_name=punk')
-// .then(response => response.json())
-// .then(data => {
-//     beers = data;  
-//     createAboutBeers()
-//     })
-//     .catch(err => console.error(err))
-
-//Para clicar no botão e trazer o valor do input
 
 function startApp() {
     createAboutBeers()
@@ -24,19 +15,16 @@ searchButton.addEventListener('click', event => {
     container.innerHTML = ''
 });
 
-// Para capturar o valor do select
 function captureSelect() {
     var select = document.getElementById('filtersBeers');
     var value = select.options[select.selectedIndex].value;
     return value;
 }
-// Para capturar o valor do select
 function captureInput() {
     var inputValue = document.querySelector('#searchInputBeer').value
     return inputValue;
 }
 
-//Para validar o select
 function validateSelect() {
     var url
     var valueInput = captureInput();
@@ -51,8 +39,6 @@ function validateSelect() {
     return url
 }
 
-
-// Para entrar na api
 function request() {
     var requestUrl = validateSelect()
     fetch(requestUrl)
@@ -64,12 +50,11 @@ function request() {
         .catch(err => {
             error()
             console.log(err)
-        } )
+        })
 
 }
-function error(){
-    //Criar um html com os dizeres 'Não encontramos o que você digitou' 
-    //Inserir umgif
+function error() {
+
     erroUrl = `
         <div class="erro">
             <h3 class="erro-title">
@@ -78,12 +63,10 @@ function error(){
             <img src="../../assets/gameover.gif">
         </div>
     `
-    container.innerHTML+= erroUrl;
+    container.innerHTML += erroUrl;
     return erroUrl;
 }
 function createAboutBeers() {
-    //Criar aqui um html para criar as informalões de divs e limpar caso tenha a div de erro
-    // Coloca todos os campos, mas os q estiverem vazios deixa em branco
     if (captureSelect() == 'food') {
         for (var i = 0; i < beers.length; i++) {
             card = `
@@ -115,20 +98,6 @@ function createAboutBeers() {
     return card;
 }
 
-// ao clicar na estrela salva uma classe para favoritar
-// function setLocal() {
-//     let index = event.target.dataset.index;
-//     var verification = favorites.includes(beers[index].name);
-    
-//     if (verification == false) {
-//         favorites.push(beers[index].name);
-//     } 
-//     else {
-//     }
-    
-//     localStorage.setItem('name', favorites)
-// }
-
 function setLocal() {
     let index = event.target.dataset.index;
     console.log(beers.image_url)
@@ -136,22 +105,9 @@ function setLocal() {
     if (verification == false) {
         favorites.push(beers[index].name);
         favoritesImg.push(beers[index].image_url)
-    } 
+    }
     else {
     }
     localStorage.setItem('name', favorites)
     localStorage.setItem('imgBeers', favoritesImg)
-
 }
-    // incluir o resultado e entrar no laço dnv e verificar se resultado ja existe se nao exister inclui
-
-    // for(let i = 0 ; i < favorites1.length; i ++){
-    //     console.log("teste", favorites1[i])
-    //     card = `
-    //      <div class=""> testetete </div>
-    //     `
-    // }
-
-    // se o valor ja estiver no local storage, não adiciona dnv
-
-    // containerFav.innerHTMLa+=  card;

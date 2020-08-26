@@ -2,7 +2,6 @@
 const container = document.querySelector(".favorites")
 var jsonTitle = localStorage.getItem("titleComics").split(',')
 var jsonImg = localStorage.getItem("imgComics").split(',')
-// let arraySeparator = json.split(',');
 
 for(let i = 0; i < jsonTitle.length; i++){
     console.log(jsonTitle[i])   

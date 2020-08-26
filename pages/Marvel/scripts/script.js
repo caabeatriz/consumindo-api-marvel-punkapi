@@ -3,34 +3,24 @@ const container = document.querySelector('.heroes')
 var heroes;
 var favoritesHeroes = []
 var favoritesImg = []
-// fetch('https://api.punkapi.com/v2/beers?beer_name=punk')
-// .then(response => response.json())
-// .then(data => {
-//     beers = data;  
-//     createAboutBeers()
-//     })
-//     .catch(err => console.error(err))
 
-//Para clicar no botão e trazer o valor do input
 searchButton.addEventListener('click', event => {
     event.preventDefault();
     request()
     container.innerHTML = ''
 });
 
-// Para capturar o valor do select
 function captureSelect() {
     var select = document.getElementById('filtersHeroes');
     var value = select.options[select.selectedIndex].value;
     return value;
 }
-// Para capturar o valor do select
+
 function captureInput () {
     var inputValue = document.querySelector('.search-input').value
     return inputValue;
 }
 
-//Para validar o select
 function validateSelect(){
     var url
     var valueInput = captureInput();
@@ -45,8 +35,6 @@ function validateSelect(){
     return url
 }
 
-
-// Para entrar na api
 function request (){
     var requestUrl = validateSelect()
     fetch(requestUrl)
@@ -70,8 +58,6 @@ function request (){
 }
 
 function error(){
-    //Criar um html com os dizeres 'Não encontramos o que você digitou' 
-    //Inserir umgif
     erroUrl = `
         <div class="erro">
             <h1 class="erro-title">
@@ -85,9 +71,7 @@ function error(){
 }
 
 function createAboutBeers(){
-    //Criar aqui um html para criar as informalões de divs e limpar caso tenha a div de erro
-    // Coloca todos os campos, mas os q estiverem vazios deixa em branco
-
+   
     if (captureSelect() == 'comics'){
         for (var i = 0 ; i < heroes.results.length; i++){
             const {results: {[i]: {title}}} = heroes;
@@ -103,11 +87,8 @@ function createAboutBeers(){
                 <div class="card-description">
                     <p class="card-description_title"> ${description} </p>
                 </p>
-            </div>`
-            ;
-            container.innerHTML += card;
-
-           
+            </div>`;
+            container.innerHTML += card;           
          }}else if (captureSelect() == 'name' ){
             const {results: {0 : {name}}} = heroes;
             const {results: {0 : {description}}} = heroes;
@@ -121,8 +102,7 @@ function createAboutBeers(){
                <div class="card-description">
                     <p  class="card-description_title"> ${description} </p>      
                 </div>      
-            </div>`
-            ;
+            </div>`;
             container.innerHTML += card;
          }
     return card;
@@ -144,4 +124,3 @@ function setLocal() {
 
 }
 
-//Tentar pegar imagem
