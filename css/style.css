@@ -1,9 +1,20 @@
+@font-face {
+	font-family: Joystick;
+	src: url(../assets/fonte/joystixmonospace.ttf)
+}
+*{
+    margin: 0 auto;
+    font-family: Joystick,'Arial';
+}
+
 main{
     text-align: center;
 }
+
 .container{
     margin: 0 auto;
     width: 65%;
+    padding-top: 200px;
 }
 .icons-img{
     width: 200px;
@@ -11,4 +22,14 @@ main{
 }
 .img-title{
     margin: 200px 0 20px 0;
+}
+@media screen and (max-width: 900px){
+    .container{
+        padding-top: 20px;
+        width: 90%;
+    }
+    .card-img{
+        width: 150px;
+    }
+    
 }

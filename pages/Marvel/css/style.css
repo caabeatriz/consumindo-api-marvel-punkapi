@@ -6,7 +6,10 @@
     margin: 0 auto;
     font-family: Joystick,'Arial';
 }
-
+a {
+   text-decoration: none;
+   color: #fff;
+}
 body{
     background: url(../assets/fundo.jpg) no-repeat center top #fff;
     background-size: cover;
@@ -28,3 +31,49 @@ body{
     list-style: none;
     margin: 20px 10px 20px 0;
 }
+.heroesMain{
+    text-align: center;
+    margin-top: 50px;
+  }
+  .card{
+    margin-top: 30px;
+    padding: 30px;
+  }
+  .card:hover {
+    background-color: #8080808c;
+  }
+  .card-description{
+    margin-top: 20px;
+    font-size: 0.85rem;
+    width: 40vw;
+  }
+  .card-title{
+    margin: 20px;
+  }
+
+  @media screen and (max-width: 900px){
+    .nav-bar ul li {
+        font-size: 14px;
+    }
+    .container{
+        width: 90%;
+    }
+      .card{
+        background-color: #8080808c;
+        margin-bottom: 20px;
+      }
+      .card-description {
+        font-size: 0.85rem;
+        width: 100%;
+         }
+         .card-description_title{
+            font-size: 10px;
+         }
+         .card-img{
+            width: 150px;
+        }
+        .card-body-img{
+            width: 150px;
+            height: 150px;
+        }
+  }
