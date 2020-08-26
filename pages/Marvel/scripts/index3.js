@@ -36,10 +36,10 @@ function validateSelect(){
     var valueInput = captureInput();
 
     if(captureSelect() == 'name'){
-        url = 'http://gateway.marvel.com/v1/public/characters?name='+valueInput+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173'; 
+        url = 'https://gateway.marvel.com/v1/public/characters?name='+valueInput+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173'; 
 
     } else if (captureSelect() == 'comics'){
-        url ='http://gateway.marvel.com/v1/public/comics?title='+valueInput+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173';
+        url ='https://gateway.marvel.com/v1/public/comics?title='+valueInput+'&ts=1597969607472&apikey=6fcc27bc9e5a492e8ea6dedd827f3b30&hash=56d9112cd2f9a18287f86c8361d7d173';
     }
 
     return url
