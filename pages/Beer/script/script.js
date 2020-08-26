@@ -2,7 +2,8 @@ const searchButton = document.querySelector(".search-button")
 const container = document.querySelector('.beersInformation')
 const containerFav = document.querySelector('.favorites')
 var beers;
-const favorites = []
+var favorites = [];
+var favoritesImg = [];
 // fetch('https://api.punkapi.com/v2/beers?beer_name=punk')
 // .then(response => response.json())
 // .then(data => {
@@ -101,9 +102,7 @@ function createAboutBeers() {
                     <h4 class="card-title">Name: ${beers[i].name}  </h4>
                     <img class="card-img" src="${beers[i].image_url}" alt""> 
                     <p class="card-text">  ${beers[i].description}</p>
-                </div>`
-
-                ;
+                </div>`;
             container.innerHTML += card;
         }
     }
@@ -112,17 +111,32 @@ function createAboutBeers() {
 }
 
 // ao clicar na estrela salva uma classe para favoritar
+// function setLocal() {
+//     let index = event.target.dataset.index;
+//     var verification = favorites.includes(beers[index].name);
+    
+//     if (verification == false) {
+//         favorites.push(beers[index].name);
+//     } 
+//     else {
+//     }
+    
+//     localStorage.setItem('name', favorites)
+// }
+
 function setLocal() {
     let index = event.target.dataset.index;
+    console.log(beers.image_url)
     var verification = favorites.includes(beers[index].name);
-
     if (verification == false) {
         favorites.push(beers[index].name);
+        favoritesImg.push(beers[index].image_url)
     } 
     else {
     }
-    
     localStorage.setItem('name', favorites)
+    localStorage.setItem('imgBeers', favoritesImg)
+
 }
     // incluir o resultado e entrar no laço dnv e verificar se resultado ja existe se nao exister inclui
 
