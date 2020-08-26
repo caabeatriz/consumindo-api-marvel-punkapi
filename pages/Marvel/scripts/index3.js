@@ -53,10 +53,16 @@ function request (){
     .then(response => response.json())
     .then(data => {
         heroes= data.data
-        console.log(requestUrl)
-        createAboutBeers()
+        console.log(heroes.results.length)
+        if(heroes.results.length == 0 ){
+            error()
+        }else {
+            createAboutBeers()
+        }
+        
     })
     .catch(err => {
+        console.log(err)
         error()
     }
     )
@@ -67,10 +73,11 @@ function error(){
     //Criar um html com os dizeres 'Não encontramos o que você digitou' 
     //Inserir umgif
     erroUrl = `
-        <div class="">
-            <h1>Não encontramos o que você digitou</h1>
+        <div class="erro">
+            <h1 class="erro-title">
+            We didn't find what you typed </h1>
+            <p> Try Again! </p>
             <img src="../../assets/gameover.gif">
-
         </div>
     `
     container.innerHTML+= erroUrl;
@@ -89,7 +96,7 @@ function createAboutBeers(){
             const  {results: {[i]: {thumbnail: {extension}}}} = heroes
             card = `
             <div class=" card beer-info">
-            <button  class="starButton" onclick="setLocal(), this.disabled=true;"  data-index=${i} > Add favorite </button>
+            <button  class="starButton outline black-blue" onclick="setLocal(), this.disabled=true;"  data-index=${i} > Add favorite </button>
             <div class="card-body">
                 <h4 class="card-title">Name:  ${title} </h4>
                 <img  class="card-img" src="${path}.${extension}" alt="Image of ${name}" width="250">
