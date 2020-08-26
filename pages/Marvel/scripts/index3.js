@@ -53,24 +53,33 @@ function request (){
     .then(response => response.json())
     .then(data => {
         heroes= data.data
+        console.log(requestUrl)
         createAboutBeers()
     })
-    .catch(err => console.error(err))
-
+    .catch(err => {
+        error()
+    }
+    )
+       
 }
 
 function error(){
     //Criar um html com os dizeres 'Não encontramos o que você digitou' 
     //Inserir umgif
-    var teste = "erro"
-    return teste ; 
+    erroUrl = `
+        <div class="">
+            <h1>Não encontramos o que você digitou</h1>
+            <img src="../../assets/gameover.gif">
+
+        </div>
+    `
+    container.innerHTML+= erroUrl;
+    return erroUrl;
 }
 
 function createAboutBeers(){
     //Criar aqui um html para criar as informalões de divs e limpar caso tenha a div de erro
     // Coloca todos os campos, mas os q estiverem vazios deixa em branco
-   
-   
 
     if (captureSelect() == 'comics'){
         for (var i = 0 ; i < heroes.results.length; i++){

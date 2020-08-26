@@ -15,10 +15,11 @@ body {
     text-align: center;
 }
 h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     color: #fff;
     text-shadow: #000 1px 0 30px;
     font-weight: bold;
+    margin: 20px 0;
   }
   .search-input {
     padding: 0.375rem 0.75rem;
@@ -32,6 +33,18 @@ h1 {
     border-radius: 0.25rem;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   }
+  .nav-bar{
+    background-color: black;
+    color:white;
+}
+.nav-bar ul {
+    display: flex;
+}
+.nav-bar ul li {
+    font-size: 24px;
+    list-style: none;
+    margin: 20px 10px 20px 0;
+}
   .card {
         width: 70%;
         margin: 0 auto;
@@ -114,4 +127,45 @@ h1 {
     background: #00aeef;
     border-color: white;
   }
-  
+  .card{
+    margin-top: 30px;
+    padding: 30px;
+  }
+  .card-description{
+    margin-top: 20px;
+    font-size: 0.85rem;
+    width: 40vw;
+  }
+  .card-title{
+    margin: 20px;
+  }
+  .card-img {
+    margin: 20px;
+  }
+
+  @media screen and (max-width: 900px){
+    .nav-bar ul li {
+        font-size: 14px;
+    }
+    .container{
+        width: 90%;
+    }
+      .card{
+        background-color: #8080808c;
+        margin-bottom: 20px;
+      }
+      .card-description {
+        font-size: 0.85rem;
+        width: 100%;
+         }
+         .card-description_title{
+            font-size: 10px;
+         }
+         .card-img{
+            width: 150px;
+        }
+        .card-body-img{
+            width: 150px;
+            height: 150px;
+        }
+  }

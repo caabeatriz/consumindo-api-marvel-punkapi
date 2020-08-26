@@ -99,8 +99,8 @@ function createAboutBeers() {
              <button  class="starButton" onclick="setLocal()" data-index=${i} > starrrr </button>
                 <div class="card-body">
                     <h4 class="card-title">Name: ${beers[i].name}  </h4>
-                    <p class="card-text">  ${beers[i].description}</p>
                     <img class="card-img" src="${beers[i].image_url}" alt""> 
+                    <p class="card-text">  ${beers[i].description}</p>
                 </div>`
 
                 ;
