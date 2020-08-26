@@ -182,31 +182,34 @@ h1 {
     .container{
         width: 90%;
     }
-      .card{
-        margin-bottom: 20px;
-        width: 70%;
+    .card{
+      margin-bottom: 20px;
+      width: 70%;
+    }
+    .card-description {
+      font-size: 0.85rem;
+      width: 100%;
+        }
+        .card-description_title{
+          font-size: 10px;
+        }
+        .card-img{
+          width:40px;
       }
-      .card-description {
-        font-size: 0.85rem;
+      .card-body-img{
+          width: 150px;
+          height: 150px;
+      }
+      h1{
+        font-size: 3rem;
+      }
+      .select{
+        margin: 20px;
+      }
+      .search-input {
+        margin: 20px;
+      }
+      .card-favorites {
         width: 100%;
-         }
-         .card-description_title{
-            font-size: 10px;
-         }
-         .card-img{
-            width:40px;
-        }
-        .card-body-img{
-            width: 150px;
-            height: 150px;
-        }
-        h1{
-          font-size: 3rem;
-        }
-        .select{
-          margin: 20px;
-        }
-        .search-input {
-          margin: 20px;
-        }
+      }
   }
