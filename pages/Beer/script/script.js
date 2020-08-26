@@ -61,17 +61,26 @@ function request() {
             beers = data
             startApp()
         })
-        .catch(err => console.error('erro'))
+        .catch(err => {
+            error()
+            console.log(err)
+        } )
 
 }
-
-function error() {
+function error(){
     //Criar um html com os dizeres 'Não encontramos o que você digitou' 
     //Inserir umgif
-    var teste = "erro"
-    return teste;
+    erroUrl = `
+        <div class="erro">
+            <h3 class="erro-title">
+            We didn't find what you typed </h3>
+            <p class="erro-title"> Try Again! </p>
+            <img src="../../assets/gameover.gif">
+        </div>
+    `
+    container.innerHTML+= erroUrl;
+    return erroUrl;
 }
-
 function createAboutBeers() {
     //Criar aqui um html para criar as informalões de divs e limpar caso tenha a div de erro
     // Coloca todos os campos, mas os q estiverem vazios deixa em branco
@@ -80,16 +89,13 @@ function createAboutBeers() {
             card = `
                 <div class="card beer-info">
                 <div class="card-body">
-                <button  class="starButton outline black-blue" > Add my favorites </button>
+                <button  class="starButton outline black-blue"  onclick="setLocal(), this.disabled=true;" data-index=${i} > Add my favorites </button>
                 <h4 class="card-boby-match"> Alimentos que combinam: ${beers[i].food_pairing}</h4>
                     <h4 class="card-title">Name:  ${beers[i].name}  </h4>
                     <img class="card-img" src="${beers[i].image_url}" alt= "Image of ${beers[i].name}"> 
                     <p class="card-text">  ${beers[i].description}</p>
-                </div>`
-
-                ;
+                </div>`;
             container.innerHTML += card;
-
         }
     }
 
@@ -97,7 +103,7 @@ function createAboutBeers() {
         for (let i = 0; i < beers.length; i++) {
             card = `
                 <div class=" card beer-info">
-             <button  class="starButton outline black-blue" onclick="setLocal(), this.disabled=true;" data-index=${i} > Add my favorites </button>
+                <button  class="starButton outline black-blue" onclick="setLocal(), this.disabled=true;" data-index=${i} > Add my favorites </button>
                 <div class="card-body">
                     <h4 class="card-title">Name: ${beers[i].name}  </h4>
                     <img class="card-img" src="${beers[i].image_url}" alt""> 
@@ -106,7 +112,6 @@ function createAboutBeers() {
             container.innerHTML += card;
         }
     }
-
     return card;
 }
 
