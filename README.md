@@ -1,4 +1,4 @@
-# challenge-ra
+# Marvel + Punk api
 
 ### Você pode acessar essa api em: https://escolhas.netlify.app/
 #### Orientações:
