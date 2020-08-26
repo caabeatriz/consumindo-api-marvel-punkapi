@@ -90,7 +90,7 @@ function createAboutBeers() {
                 <div class="card beer-info">
                 <div class="card-body">
                 <button  class="starButton outline black-blue"  onclick="setLocal(), this.disabled=true;" data-index=${i} > Add my favorites </button>
-                <h4 class="card-boby-match"> Alimentos que combinam: ${beers[i].food_pairing}</h4>
+                <h4 class="card-boby-match"> Matching foods: ${beers[i].food_pairing}</h4>
                     <h4 class="card-title">Name:  ${beers[i].name}  </h4>
                     <img class="card-img" src="${beers[i].image_url}" alt= "Image of ${beers[i].name}"> 
                     <p class="card-text">  ${beers[i].description}</p>
